@@ -5,9 +5,8 @@ This is a highly-opinionated tool that takes an existing [Hugo](https://gohugo.i
 ## Directions
 
 1. Install [Node.js](https://nodejs.org/), I think this requires at least Node 10.
-2. Modify the constant `APS` in the `index.js` file to point to the `content` directory of your Hugo project.
-3. Run `node index.js`
-4. Copy the newly created `gopher/` directory to the root of your gopher namespace.
+2. Run `node index.js [DIRECTORY]` where `[DIRECTORY]` is the location of the `content` directory of your Hugo site.
+3. Copy the newly created `gopher/` directory to the root of your gopher namespace.
 
 ## Opinions And Limitations
 

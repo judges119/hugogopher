@@ -7,12 +7,12 @@ const createDir = require('./createDir');
 const createPost = require('./createPost');
 const gophermap = require('./gophermap');
 
-const APS = '../APS/content';
+const DIRECTORY = process.argv[2];
 
-readContentDirs(APS)
+readContentDirs(DIRECTORY)
   .then(directories => directories.map(directory => {
     let gophermap_listing = [];
-    readMarkdownFiles(APS + path.sep + directory)
+    readMarkdownFiles(DIRECTORY + path.sep + directory)
       .then(files => files.map((file, i, files_array) => fs.promises.readFile(file, 'utf8')
         .then(content => {
           const post = formatHugo(content)
@@ -22,5 +22,6 @@ readContentDirs(APS)
               createPost(post_dir, post)
             })
         })
+        .catch(console.log)
       ))
   }));
